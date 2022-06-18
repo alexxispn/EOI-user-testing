@@ -1,5 +1,6 @@
 // Copied and pasted from:
 // https://testing-library.com/docs/dom-testing-library/example-intro
+import '@testing-library/jest-dom';
 
 import {
   getByLabelText,

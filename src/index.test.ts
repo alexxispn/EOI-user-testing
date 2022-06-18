@@ -1,5 +1,10 @@
+/**
+ * @jest-environment node
+ */
+
 import { fireEvent, getByText } from '@testing-library/dom'
 import '@testing-library/jest-dom/extend-expect'
+import '@testing-library/jest-dom';
 import { JSDOM } from 'jsdom'
 import fs from 'fs'
 import path from 'path'
