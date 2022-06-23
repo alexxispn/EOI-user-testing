@@ -9,20 +9,22 @@
 
 <body>
     <ul>
-        <li>Alvin Clayton</li>
-        <li>Paul Hunt</li>
-        <li>Allie Wilkins</li>
-        <li>Lloyd Terry</li>
-        <li>Milton Jefferson</li>
+        <li><p>Alvin Clayton</p></li>
+        <li><p>Paul Hunt</p></li>
+        <li><p>Allie Wilkins</p></li>
+        <li><p>Lloyd Terry</p></li>
+        <li><p>Milton Jefferson</p></li>
     </ul>
     <button id="add">Añadir</button>
 </body>
 
 <script>
-    function addUser(){
-        const li = document.createElement("li");
-        li.innerHTML = "Cordelia Ingram";
-        document.getElementsByTagName("ul")[0].appendChild(li);
+    function addUser() {
+      const li = document.createElement('li');
+      const p = document.createElement('p');
+      p.innerHTML = 'Cordelia Ingram';
+      li.appendChild(p);
+      document.querySelector('ul').appendChild(li);
     }
         const button = document.querySelector('#add');
         button.addEventListener('click', addUser);
