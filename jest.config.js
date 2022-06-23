@@ -1,5 +1,4 @@
 module.exports = {
-  testEnvironment: 'jsdom',
   clearMocks: true,
   setupFilesAfterEnv: ['regenerator-runtime/runtime'],
   testPathIgnorePatterns: [
