@@ -8,25 +8,79 @@
 </head>
 
 <body>
-    <ul>
-        <li><p>Alvin Clayton</p></li>
-        <li><p>Paul Hunt</p></li>
-        <li><p>Allie Wilkins</p></li>
-        <li><p>Lloyd Terry</p></li>
-        <li><p>Milton Jefferson</p></li>
-    </ul>
     <button id="add">Añadir</button>
+    <ul>
+        <li>
+            <p>Alvin Clayton</p>
+            <button class="remove">Borrar</button>
+        </li>
+        <li>
+            <p>Paul Hunt</p>
+            <button class="remove">Borrar</button>
+        </li>
+        <li>
+            <p>Allie Wilkins</p>
+            <button class="remove">Borrar</button>
+        </li>
+        <li>
+            <p>Lloyd Terry</p>
+            <button class="remove">Borrar</button>
+        </li>
+        <li>
+            <p>Milton Jefferson</p>
+            <button class="remove">Borrar</button>
+        </li>
+    </ul>
+    <input type="text" id="filter" placeholder="Nombre">
 </body>
 
 <script>
-    function addUser() {
-      const li = document.createElement('li');
-      const p = document.createElement('p');
-      p.innerHTML = 'Cordelia Ingram';
-      li.appendChild(p);
-      document.querySelector('ul').appendChild(li);
+const addUser = () => {
+    const li = document.createElement('li');
+    const p = document.createElement('p');
+    const button = document.createElement('button');
+    p.innerHTML = 'Cordelia Ingram';
+    button.innerHTML = 'Borrar';
+    button.classList.add('remove');
+    li.appendChild(p);
+    li.appendChild(button);
+    document.querySelector('ul').appendChild(li);
+    addRemoveButton();
     }
-        const button = document.querySelector('#add');
-        button.addEventListener('click', addUser);
+const addButton = document.querySelector('#add');
+    addButton.addEventListener('click', addUser);
+
+
+
+const removeUser = (elem) => {
+    const li = elem.target.parentElement;
+    li.remove();
+}
+const addRemoveButton = () => {
+    const removeButton = document.querySelectorAll('.remove');
+    removeButton.forEach(button => {
+        button.addEventListener('click', removeUser);
+    });
+}
+addRemoveButton()
+
+
+
+function filterUsers(elem) {
+    const filter = elem.target.value.toUpperCase();
+    const li = document.querySelectorAll('li');
+    li.forEach(item => {
+        const text = item.textContent;
+        if (text.toUpperCase().indexOf(filter) > -1) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+const filter = document.querySelector('input');
+filter.addEventListener('keyup', filterUsers);
+
+
 </script>
 </html>
